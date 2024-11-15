@@ -54,7 +54,7 @@ const clear = () => {
         <Table
           :data="data"
           :schema="formDef.detailForm"
-          :columns="['name', 'age', 'totalTeeths']"
+          :columns="columns"
           @delete="deleteItem"
           @update="updateItem"
         />

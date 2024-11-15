@@ -15,13 +15,3 @@ export const DogUiSchema = {
     },
   ],
 };
-
-export const DogListSchema = {
-  type: 'VerticalLayout',
-  elements: [
-    {
-      type: 'Control',
-      scope: '#/properties/items',
-    },
-  ],
-};

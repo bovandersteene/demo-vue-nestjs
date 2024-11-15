@@ -1,21 +1,21 @@
 import { PrismaService } from './prisma.service';
 
 export abstract class Repository<TYPE> {
-  constructor(protected prisma: PrismaService) {}
+  protected constructor(protected prisma: PrismaService) {}
 
   async create(data: any): Promise<TYPE> {
-    throw new Error('Method not implemented.');
+    return data;
   }
 
   async update(id: number, data: any): Promise<TYPE> {
-    throw new Error('Method not implemented.');
+    return data;
   }
 
   async delete(id: any): Promise<TYPE> {
-    throw new Error('Method not implemented.');
+    return { id } as TYPE;
   }
 
   async list(): Promise<TYPE[]> {
-    throw new Error('Method not implemented.');
+    return [];
   }
 }

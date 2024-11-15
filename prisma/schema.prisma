@@ -13,3 +13,29 @@ model Dog {
   age         Int
   totalTeeths Int?
 }
+
+model Email {
+  id      Int    @id @default(autoincrement())
+  email   String
+  Owner   Owner  @relation(fields: [ownerId], references: [id])
+  ownerId Int
+}
+
+model Address {
+  id         Int    @id @default(autoincrement())
+  street     String
+  number     String
+  city       String
+  postalCode String
+  country    String
+  Owner      Owner  @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  ownerId    Int
+}
+
+model Owner {
+  id        Int       @id @default(autoincrement())
+  name      String
+  firstname String
+  emails    Email[]
+  addresses Address[]
+}
