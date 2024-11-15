@@ -10,11 +10,33 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@demo-vue-nestjs/api/animal/api": [
+        "./libs/api/animal/api/src/index.ts"
+      ],
+      "@demo-vue-nestjs/api/animal/repository": [
+        "./libs/api/animal/repository/src/index.ts"
+      ],
+      "@demo-vue-nestjs/forms": [
+        "./libs/forms/src/index.ts"
+      ],
+      "@demo-vue-nestjs/model": [
+        "./libs/shared/model/src/index.ts"
+      ],
+      "@demo-vue-nestjs/ui/table": [
+        "libs/ui/table/src/index.ts"
+      ]
+    }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
