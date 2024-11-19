@@ -6,12 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UsePipes,
 } from '@nestjs/common';
 
 import { DogDto } from './dog.dto';
 import { DogRepository } from '@demo-vue-nestjs/api/animal/repository';
-import { DogForm } from '@demo-vue-nestjs/model';
+import { DogForm } from '@demo-vue-nestjs/type/form';
+import { ZodValidationPipe } from 'nestjs-zod';
 
+@UsePipes(ZodValidationPipe)
 @Controller('dog')
 export class DogController {
   protected readonly formSchema = DogForm;

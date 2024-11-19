@@ -10,7 +10,7 @@ const props = defineProps<{
 console.log(props.schema);
 
 const columnDefs = props.columns.map((column) => {
-  const property = props.schema.properties[column];
+  const property = props.schema?.properties?.[column];
   return {
     headerName: property?.description ?? column,
     field: column,

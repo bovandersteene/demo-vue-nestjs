@@ -9,9 +9,9 @@ export const DogSchema = z.object({
   createdAt: z.coerce.date(),
   name: z.string(),
   age: z.number().min(0),
-  totalTeeths: z.number().min(0).nullable(),
-})
+  totalTeeths: z.number().min(0).nullish(),
+});
 
-export type Dog = z.infer<typeof DogSchema>
+export type Dog = z.infer<typeof DogSchema>;
 
 export default DogSchema;

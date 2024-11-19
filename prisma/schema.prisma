@@ -25,7 +25,7 @@ model Dog {
   createdAt   DateTime @default(now())
   name        String   @unique
   age         Int /// @zod.number.min(0)
-  totalTeeths Int? /// @zod.number.min(0)
+  totalTeeths Int?
 
   // CHECK (age >= 0)
 }

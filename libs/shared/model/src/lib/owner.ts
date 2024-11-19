@@ -1,10 +1,10 @@
 import { z } from 'zod';
-import { createFromZodSchema } from './form-schemas';
 import {
   AddressSchema,
   EmailSchema,
   OwnerSchema as OriginalOwnerSchema,
 } from '@demo-vue-nestjs/types';
+import { zodToJsonSchema } from 'zod-to-json-schema';
 
 export const OwnerSchema = OriginalOwnerSchema.extend({
   emails: z.array(EmailSchema),
@@ -13,4 +13,4 @@ export const OwnerSchema = OriginalOwnerSchema.extend({
 
 export type Owner = z.infer<typeof OwnerSchema>;
 
-export const OwnerForm = createFromZodSchema(OwnerSchema);
+export const OwnerForm = zodToJsonSchema(OwnerSchema);

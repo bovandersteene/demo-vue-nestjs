@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TableForm from '../TableForm.vue';
-import { OwnerForm } from '@demo-vue-nestjs/model';
+import { OwnerForm } from '@demo-vue-nestjs/types/form';
+import { OwnerForm as OwnerForm1 } from '@demo-vue-nestjs/model';
 import { ref } from 'vue';
 import { OwnerUiSchema } from './owner.ui.schema';
 import Owner from './Owner.vue';
@@ -63,6 +64,14 @@ const deleteItem = async (data: Owner) => {
     :data="owners"
     :columns="columns"
     :form-def="OwnerForm"
+    :ui-schema="OwnerUiSchema"
+    @save-form="saveForm"
+    @delete-item="deleteItem"
+  />
+  <TableForm
+    :data="owners"
+    :columns="columns"
+    :form-def="OwnerForm1"
     :ui-schema="OwnerUiSchema"
     @save-form="saveForm"
     @delete-item="deleteItem"

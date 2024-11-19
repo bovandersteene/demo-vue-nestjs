@@ -53,7 +53,7 @@ const clear = () => {
         <h2 class="card-title">List</h2>
         <Table
           :data="data"
-          :schema="formDef.detailForm"
+          :schema="formDef"
           :columns="columns"
           @delete="deleteItem"
           @update="updateItem"
@@ -65,7 +65,7 @@ const clear = () => {
         <h2 class="card-title">Test tailwind!</h2>
         <json-forms
           :data="formData"
-          :schema="formDef.detailForm"
+          :schema="formDef"
           :uischema="uiSchema"
           :renderers="tailwindRenderers"
           @change="onChange"
@@ -83,7 +83,7 @@ const clear = () => {
         <h2 class="card-title">Vanilla html</h2>
         <json-forms
           :data="formData"
-          :schema="formDef.detailForm"
+          :schema="formDef"
           :uischema="uiSchema"
           :renderers="vanillaRenderers"
           @change="onChange"

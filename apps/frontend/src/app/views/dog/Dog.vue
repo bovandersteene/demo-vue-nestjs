@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DogForm } from '@demo-vue-nestjs/model';
+import { DogForm } from '@demo-vue-nestjs/types/form';
 import type { Dog } from '@demo-vue-nestjs/types';
 import { DogUiSchema } from './dog.ui.schema';
 import TableForm from '../TableForm.vue';
@@ -58,9 +58,6 @@ const columns = ['name', 'age', 'totalTeeths'];
 </script>
 
 <template>
-  <pre>
-    {{ DogForm.detailForm }}
-  </pre>
   <TableForm
     :data="dogs"
     :columns="columns"
