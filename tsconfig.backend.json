@@ -1,0 +1,49 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@demo-vue-nestjs/api/animal/api": [
+        "./libs/api/animal/api/src/index.ts"
+      ],
+      "@demo-vue-nestjs/api/animal/repository": [
+        "./libs/api/animal/repository/src/index.ts"
+      ],
+      "@demo-vue-nestjs/forms": [
+        "./libs/forms/src/index.ts"
+      ],
+      "@demo-vue-nestjs/model": [
+        "./libs/shared/model/src/index.ts"
+      ],
+      "@demo-vue-nestjs/prisma-client": [
+        "generated/prisma-client"
+      ],
+      "@demo-vue-nestjs/types": [
+        "generated/types/index.ts"
+      ],
+      "@demo-vue-nestjs/ui/table": [
+        "libs/ui/table/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "libs/generated",
+    "node_modules",
+    "tmp"
+  ]
+}

@@ -1,26 +1,14 @@
 import { z } from 'zod';
 import { createFromZodSchema } from './form-schemas';
+import {
+  AddressSchema,
+  EmailSchema,
+  OwnerSchema as OriginalOwnerSchema,
+} from '@demo-vue-nestjs/types';
 
-export const OwnerAddress = z.object({
-  id: z.number().nullish(),
-  street: z.string(),
-  number: z.string(),
-  city: z.string(),
-  postalCode: z.string(),
-  country: z.string(),
-});
-
-export const EmailSchema = z.object({
-  id: z.number().nullish(),
-  email: z.string().email(),
-});
-
-export const OwnerSchema = z.object({
-  id: z.number().nullish(),
-  name: z.string(),
-  firstname: z.string(),
+export const OwnerSchema = OriginalOwnerSchema.extend({
   emails: z.array(EmailSchema),
-  addresses: z.array(OwnerAddress).nullish(),
+  addresses: z.array(AddressSchema),
 });
 
 export type Owner = z.infer<typeof OwnerSchema>;

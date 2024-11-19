@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from './repository';
 import { PrismaService } from './prisma.service';
-import { Owner } from '@prisma/client';
+import { Owner } from '@demo-vue-nestjs/prisma-client';
 
 @Injectable()
 export class OwnerRepository extends Repository<Owner> {

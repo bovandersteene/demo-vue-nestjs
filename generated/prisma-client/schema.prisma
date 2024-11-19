@@ -1,0 +1,60 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma-client/"
+}
+
+generator zod {
+  provider                         = "zod-prisma-types"
+  output                           = "../generated/types"
+  useMultipleFiles                 = true // default is false
+  writeBarrelFiles                 = true // default is true
+  createInputTypes                 = false // default is true
+  createModelTypes                 = true // default is true
+  addInputTypeValidation           = false // default is true
+  createOptionalDefaultValuesTypes = false // default is false
+  createRelationValuesTypes        = true
+}
+
+model Dog {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  name        String   @unique
+  age         Int /// @zod.number.min(0)
+  totalTeeths Int? /// @zod.number.min(0)
+
+  // CHECK (age >= 0)
+}
+
+model Email {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  email     String
+  Owner     Owner    @relation(fields: [ownerId], references: [id])
+  ownerId   Int
+}
+
+model Address {
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  street     String
+  number     String
+  city       String
+  postalCode String
+  country    String
+  Owner      Owner    @relation(fields: [ownerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  ownerId    Int
+}
+
+model Owner {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  name      String
+  firstname String
+  emails    Email[]
+  addresses Address[]
+}

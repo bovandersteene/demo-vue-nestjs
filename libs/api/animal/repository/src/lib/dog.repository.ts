@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Dog } from '@prisma/client';
+import { Dog } from '@demo-vue-nestjs/prisma-client';
 import { Repository } from './repository';
 import { PrismaService } from './prisma.service';
 

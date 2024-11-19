@@ -10,11 +10,10 @@ import {
 
 import { DogDto } from './dog.dto';
 import { DogRepository } from '@demo-vue-nestjs/api/animal/repository';
-import { DogForm, DogSchema } from '@demo-vue-nestjs/model';
+import { DogForm } from '@demo-vue-nestjs/model';
 
 @Controller('dog')
 export class DogController {
-  protected readonly schema = DogSchema;
   protected readonly formSchema = DogForm;
 
   constructor(private readonly repository: DogRepository) {}
