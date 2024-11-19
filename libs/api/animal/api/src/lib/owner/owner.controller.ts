@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-  UsePipes,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes } from '@nestjs/common';
 import { OwnerRepository } from '@demo-vue-nestjs/api/animal/repository';
 import { OwnerForm } from '@demo-vue-nestjs/model';
 import { OwnerDto } from './owner.dto';
@@ -22,7 +13,7 @@ export class OwnerController {
 
   @Get('schema')
   getSchema() {
-    return this.formSchema.detailForm;
+    return this.formSchema;
   }
 
   @Post()

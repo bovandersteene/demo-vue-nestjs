@@ -11,7 +11,7 @@ import {
 
 import { DogDto } from './dog.dto';
 import { DogRepository } from '@demo-vue-nestjs/api/animal/repository';
-import { DogForm } from '@demo-vue-nestjs/type/form';
+import { DogForm } from '@demo-vue-nestjs/types/form';
 import { ZodValidationPipe } from 'nestjs-zod';
 
 @UsePipes(ZodValidationPipe)
@@ -23,7 +23,7 @@ export class DogController {
 
   @Get('schema')
   getSchema() {
-    return this.formSchema.detailForm;
+    return this.formSchema;
   }
 
   @Post()
